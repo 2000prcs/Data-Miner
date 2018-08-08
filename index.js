@@ -5,8 +5,6 @@ const path = require('path');
 const { Commands } = require('./commands');
 
 const [,, ...args] = process.argv;
-// console.log(process.argv)
-// console.log(args);
 
 // Prints output to STDOUT
 const logCompanies = (data) => {
@@ -22,13 +20,16 @@ const logCompanies = (data) => {
 const miner = (file, command, argument) => {
 
   let data;
-  // console.log(process.argv)
-  // console.log(args[0])
-  // console.log(file);
-  data = fs.readFileSync(path.resolve(file), 'utf8');
+
+  try {
+    data = fs.readFileSync(path.resolve(file), 'utf8');
+  } catch (err) {
+    console.log('Error Occured: Wrong File Path');
+    return;
+  }
   data = JSON.parse(data);
 
-  // Call command handlers 
+  // Call command handlers if the command is correct
   if(!Commands[command]){
     console.log('Wrong Command');
     return;
@@ -39,9 +40,8 @@ const miner = (file, command, argument) => {
   return result;
 }
 
-//console.log(process.env)
 
-// Setting up testing environment
+// If testing environment export modules, otherwise invoke miner with STDIN
 if(!process.env.TEST){
   miner(args[0], args[1], args[2]);
 } else if (process.env.TEST){
