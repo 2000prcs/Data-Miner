@@ -11,7 +11,7 @@ const [,, ...args] = process.argv;
 // Prints output to STDOUT
 const logCompanies = (data) => {
   if(data.length === 0){
-    console.log('No data found');
+    console.log('No Companies Found with Your Query');
     return;
   } 
   console.log(`Company Names:\n${data.join(', ')}\n\nNumber of Companies: ${data.length}`);
@@ -29,6 +29,10 @@ const miner = (file, command, argument) => {
   data = JSON.parse(data);
 
   // Call command handlers 
+  if(!Commands[command]){
+    console.log('Wrong Command');
+    return;
+  }
   let result = Commands[command](data, argument);
   logCompanies(result);
   

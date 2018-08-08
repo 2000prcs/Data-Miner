@@ -1,4 +1,5 @@
 process.env.TEST = true;
+
 const { miner, logCompanies } = require('../index');
 const { commands } = require('../commands');
 
@@ -39,18 +40,57 @@ describe('Command handlers', () => {
 // Testing miner function
 
 
+// global.console = {
+//   log: jest.fn()
+// }
 
+// Error handling
+describe('Miner CLI Error Handler', () => {
+  test('Should handle a wrong input for locate command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'locate', 'San Francisco')).toEqual([]);
+    expect(mockConsole).toHaveBeenLastCalledWith('No Companies Found with Your Query');
+    mockConsole.mockReset();
+    done();
+  });
 
-// // Error handling
-// describe('Miner CLI Error Handler', (done) => {
-//   test('Should handle a case of there is no matching company', () => {
+  test('Should handle a wrong input for find_before command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'find_before', 'ABCDE')).toEqual([]);
+    expect(mockConsole).toHaveBeenLastCalledWith('No Companies Found with Your Query');
+    mockConsole.mockReset();
+    done();
+  });
 
-//     done();
-//   });
+  test('Should handle a wrong input for find_after command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'find_after', 'ABCDE')).toEqual([]);
+    expect(mockConsole).toHaveBeenLastCalledWith('No Companies Found with Your Query');
+    mockConsole.mockReset();
+    done();
+  });
 
-//   test('Should handle a wrong input', (done) => {
+  test('Should handle a wrong input for find_companies_between_size command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'find_companies_between_size', 99999)).toEqual([]);
+    expect(mockConsole).toHaveBeenLastCalledWith('No Companies Found with Your Query');
+    mockConsole.mockReset();
+    done();
+  });
 
-//     done();
-//   });
+  test('Should handle a wrong input for find_type command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'find_type', 'Animal')).toEqual([]);
+    expect(mockConsole).toHaveBeenLastCalledWith('No Companies Found with Your Query');
+    mockConsole.mockReset();
+    done();
+  });
 
-// });
+  test('Should handle a wrong command', (done) => {
+    let mockConsole = console.log = jest.fn();
+    expect(miner('data.json', 'take my command', 'CA')).toEqual();
+    expect(mockConsole).toHaveBeenLastCalledWith('Wrong Command');
+    mockConsole.mockReset();
+    done();
+  });
+});
