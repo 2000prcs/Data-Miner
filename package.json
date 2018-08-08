@@ -1,12 +1,12 @@
 {
-  "name": "Company_Data_Miner(Bain)",
+  "name": "company-data-miner",
   "version": "1.0.0",
-  "description": "",
+  "description": "Company Data Miner CLT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Moyeong Lee",
   "license": "ISC"
 }
