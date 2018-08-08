@@ -1,6 +1,4 @@
 
-//let companyNames;
-
 // Handle each commands 
 const Commands = {
   locate: (companies, arg) => {

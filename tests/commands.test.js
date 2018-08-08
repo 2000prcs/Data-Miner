@@ -81,7 +81,7 @@ describe('Miner CLI Error Handler', () => {
   test('Should handle a wrong command', (done) => {
     const mockConsole = console.log = jest.fn();
     expect(miner('data.json', 'take my command', 'CA')).toEqual();
-    expect(mockConsole).toHaveBeenLastCalledWith('Wrong Command');
+    expect(mockConsole).toHaveBeenLastCalledWith('Error Occured: Wrong Command');
     mockConsole.mockReset();
     done();
   });
