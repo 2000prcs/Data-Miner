@@ -20,16 +20,29 @@ const logCompanies = (data) => {
 
 // Main function to take input from STDIN
 const miner = (file, command, argument) => {
-  
-  let data = fs.readFileSync(path.resolve(file), 'utf8');
+
+  let data;
+  // console.log(process.argv)
+  // console.log(args[0])
+  // console.log(file);
+  data = fs.readFileSync(path.resolve(file), 'utf8');
   data = JSON.parse(data);
 
   // Call command handlers 
   let result = Commands[command](data, argument);
   logCompanies(result);
+  
+  return result;
 }
 
+//console.log(process.env)
 
-
-miner(args[0], args[1], args[2]);
-
+// Setting up testing environment
+if(!process.env.TEST){
+  miner(args[0], args[1], args[2]);
+} else if (process.env.TEST){
+  module.exports = {
+    miner,
+    logCompanies,
+  };
+}

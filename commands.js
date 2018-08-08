@@ -1,6 +1,5 @@
 
 let companyNames;
-// let companyNumber;
 
 // Handle each commands 
 const Commands = {
@@ -8,8 +7,6 @@ const Commands = {
     companyNames = companies
       .filter(company => company.state === arg)
       .map(company => company.company_name);
-    // console.log(companyNames);
-    // console.log(companyNames.length);
     return companyNames;
   },
   find_before: (companies, arg) => {
@@ -18,8 +15,6 @@ const Commands = {
         return company.year_founded && company.year_founded <= arg
       })
       .map(company => company.company_name);   
-    // console.log(companyNames);
-    // console.log(companyNames.length);
     return companyNames;
   },
   find_after: (companies, arg) => {
@@ -28,28 +23,21 @@ const Commands = {
         return company.year_founded && company.year_founded >= arg
       })
       .map(company => company.company_name);
-    // console.log(companyNames);
-    // console.log(companyNames.length);
     return companyNames;
   },
   find_companies_between_size: (companies, arg) => {
     companyNames = companies
       .filter(company => company.full_time_employees === arg)
       .map(company => company.company_name);
-    // console.log(companyNames);
-    // console.log(companyNames.length);
     return companyNames;
   },
   find_type: (companies, arg) => {
     companyNames = companies
       .filter(company => company.company_category === arg)
       .map(company => company.company_name);
-    // console.log(companyNames);
-    // console.log(companyNames.length);
     return companyNames;
   }
 }
-
 
 module.exports = {
   Commands,
