@@ -28,22 +28,64 @@ This program is built with `Node 8.11.1`
 ## Design overview
 
 1. Language: I decided to use JavaScript with Node.js environment 
-2. Run the program: To make the program executable, I mapped `./index.js` command with bin. This maps the command to the file `index.js` to be executed.
+2. Run the program: To make the program executable, I mapped `miner` command with bin. This maps the command to the file `index.js` to be executed.
 3. Main Process: Main function `miner()` takes input from STDIN => Read the file to parse data => pass the data and user query to command handlers
 => the `logCompanies()` function takes the mapped result and logs it as a string to the console
 
 
 ## Install instructions
 
+  ### Option 1: With `miner` command
 From the root directory:
 
-1. Install npm and dependencies globally to make the script executable: 
+1. Install project dependencies: 
 
 ```sh
-npm install -g
+npm install
 ```
 
-2. Run command in the format: 
+2. Make `index.js` executable with `miner` command:  
+
+```sh
+npm link or npm install -g
+```
+
+For Windows, try `sudo` with the command: `e.g. sudo npm install -g`
+
+
+3. Run command in the format: 
+
+```sh
+miner [file] [command] [argument]
+```
+
+### Example
+```sh
+$ miner data.json find_before 1850
+Company Names:
+Citigroup, Deloitte, Dun & Bradstreet, J.P. Morgan Chase
+
+Number of Companies: 4
+```
+
+  ### Option 2: With the file path 
+
+1. Install project dependencies: 
+
+```sh
+npm install
+```
+
+2. Make `index.js` executable by modifying the file permission:  
+
+```sh
+chmod +x ./index.js
+```
+
+For Windows, try `sudo` with the command: `e.g. sudo chmod +x ./index.js`
+
+
+3. Run command in the format: 
 
 ```sh
 ./index.js [file] [command] [argument]
@@ -51,11 +93,11 @@ npm install -g
 
 ### Example
 ```sh
-./index.js data.json find_companies_between_size 1,001-5,000
+$ ./index.js data.json find_after 2014                                                             
 Company Names:
-Abt Associates, Bridgewater, Chemical Abstracts Service, College Board, CoreLogic, Dun & Bradstreet, Esri, Fitch, Forrester Research, Gallup, Graebel Van Lines, Informatica, Inovalon, JJ Keller, Moody\'s, Morningstar, Inc., Navico
+48 Factoring Inc., BaleFire Global, Compared Care, CONNECT-DOT LLC., How\'s My Offer?, Kimono Labs
 
-Number of Companies: 17
+Number of Companies: 6
 ```
 
 ## Assumptions
