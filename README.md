@@ -50,7 +50,7 @@ npm install
 npm link
 ```
 
-For Windows, try `sudo` with the command: `e.g. sudo npm install -g`
+For Windows, try `sudo` with the command: `e.g. sudo npm link`
 
 
 3. Run command in the format: 
@@ -61,11 +61,11 @@ miner [file] [command] [argument]
 
 ### Example
 ```sh
-$ miner data.json find_before 1850
+$ miner data.json locate TX                                                                          
 Company Names:
-Citigroup, Deloitte, Dun & Bradstreet, J.P. Morgan Chase
+Aunt Bertha, Inc., CareSet Systems, Careset.com, Castle Biosciences, Epsilon, FlightAware, Fuzion Apps, Inc., Headlight, Innography, Junar, Inc.
 
-Number of Companies: 4
+Number of Companies: 10
 ```
 
   ### Option 2: With the file path 
