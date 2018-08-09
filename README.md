@@ -25,13 +25,6 @@
 To run the program and run tests, Node.js must be installed globally on your device. 
 This program is built with `Node 8.11.1`
 
-## Design overview
-
-1. Language: I decided to use JavaScript with Node.js environment 
-2. Running program: To make the program executable, I mapped `miner` command with bin. This maps the command to the file `index.js` to be executed. The program can be executed by modifying `index.js` file permission with `chmod` as well. 
-3. Main Process: Main function `miner()` takes input from STDIN => Read the file to parse data => pass the data and user query to command handlers
-=> the `logCompanies()` function takes the mapped result and logs it as a string to the console
-
 
 ## Install instructions
 
@@ -76,7 +69,7 @@ Number of Companies: 10
 npm install
 ```
 
-2. Make `index.js` executable by modifying the file permission:  
+2. Make `index.js` executable by modifying the execute permissions appropriate for your system:  
 
 ```sh
 chmod +x ./index.js
@@ -100,6 +93,13 @@ Compendia Bioscience Life Technologies, FarmLogs, LOVELAND Technologies, Munetri
 Number of Companies: 4
 ```
 
+## Design overview
+
+1. Language: I decided to use JavaScript with Node.js environment to achieve a rapid prototype.
+2. Main Process: Main function `miner()` takes input from STDIN => Read the file to parse data => pass the data and user query to command handlers
+=> the `logCompanies()` function takes the mapped result and logs it as a string to the console
+
+
 ## Assumptions
 
 - I initially considered saving the data in a database, but switched my decision to go with simple JavaScript handlers. Given the fact that the amount of data is not that large, querying with the JSON file directly would be much simpler and faster.
@@ -116,9 +116,9 @@ npm test
 
 ## Future Improvements
 
-- To make the program more user friendly, I can add more helpers for command or query errors. For example, I can add friendly intro giving introduction of the program or instructions when user makes an input error.
-- I can add helper messages depending on the error type as well. For example, if the query has the wrong data type (e.g. number instead of string), a helper message can give direction to correct the input.
-- If the dataset becomes larger, I considered saving the data in a database to query the data more efficiently.
+- To make the program more user friendly, I would add more helpers for command or query errors. For example, I would add friendly intro giving introduction of the program or instructions when user makes an input error.
+- I would add helper messages depending on the error type as well. For example, if the query has the wrong data type (e.g. number instead of string), a helper message can give direction to correct the input.
+- If the dataset becomes larger, I would consider saving the data in a database to query the data more efficiently.
 
 
 ## Built With
