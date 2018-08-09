@@ -27,9 +27,9 @@ This program is built with `Node 8.11.1`
 
 
 ## Install instructions
+From the root directory:
 
   ### Option 1: With `miner` command
-From the root directory:
 
 1. Install project dependencies: 
 
