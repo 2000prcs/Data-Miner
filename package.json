@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Company Data Miner CLT",
   "scripts": {
-    "test": "jest --env=node"
+    "test": "jest --env=node --silent"
   },
   "keywords": [],
   "author": "Moyeong Lee",
   "license": "ISC",
   "bin": {
-    "test": "./index.js"
+    "command": "./index.js"
   },
   "devDependencies": {
     "jest": "^23.4.2"
