@@ -28,36 +28,22 @@ This program is built with `Node 8.11.1`
 ## Design overview
 
 1. Language: I chose JavaScript with Node.js environment 
-2. Environment: To make the script executable 
+2. Environment: To make the script executable, I mapped `./index.js` command with bin. This maps the command to the file `index.js` to be executed.
 3. Main Process: Main function `miner()` takes input from STDIN => Read the file to parse data => pass the data and user query to command handlers
-=> `logCompanies()` funtion takes the mapped result and log the result as string on console
+=> the `logCompanies()` function takes the mapped result and logs it as a string to the console
 
 
 ## Install instructions
 
 From the root directory:
 
-1. Install npm globally: 
+1. Install npm and dependencies globally to make the script executable: 
 
 ```sh
 npm install -g
 ```
 
-2. Install npm dependencies (for testing):
-
-```sh
-npm install
-```
-
-3. Make command-line script executable:
-
-```sh
-npm run miner
-```
-
-4. Run command in the format 
-
-For Mac OS or Linux:
+2. Run command in the format 
 
 ```sh
 ./index.js [file] [command] [argument]
@@ -71,21 +57,15 @@ Abt Associates, Bridgewater, Chemical Abstracts Service, College Board, CoreLogi
 Number of Companies: 17
 ```
 
-For Windows:
-
-```sh
-node.cmd index.js [file] [command] [argument]
-```
-
 ## Assumptions
 
-- I initially considered saving the data in a database, but switched my decision to go with simple JavaScript handlers. Given the fact that the amount of data is not that large, quering with the JSON file directly would be much simpler and faster.
-- I was handling the commands with Switch statement in main file `index.js` originally, but separated the logic to `commands.js` for more modularization.
+- I initially considered saving the data in a database, but switched my decision to go with simple JavaScript handlers. Given the fact that the amount of data is not that large, querying with the JSON file directly would be much simpler and faster.
+- I was handling the commands with a switch statement in main file `index.js` originally, but separated the logic to `commands.js` for more modularization.
 - My assumption is the file will be <b>JSON format</b> as mentioned in the challenge instructions. Therefore, I implemented my logic and tests with the given assumption.
 
 ## Testing
 
-Unit tests are implemented with Jest. Testing environment is set to node.
+Unit tests are implemented with Jest. Testing environment is set to Node.
 
 ```sh
 npm test

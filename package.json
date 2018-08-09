@@ -10,7 +10,7 @@
   "author": "Moyeong Lee",
   "license": "ISC",
   "bin": {
-    "miner": "./index.js"
+    "./index.js": "./index.js"
   },
   "devDependencies": {
     "jest": "^23.4.2"
