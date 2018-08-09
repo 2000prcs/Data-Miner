@@ -38,7 +38,7 @@ const miner = (file, command, argument) => {
     process.stdout.write("- find_before [year] e.g. find_before 1800\n");
     process.stdout.write("- find_after [year] e.g. find_after 2010\n");
     process.stdout.write("- find_companies_between_size [size] e.g. find_companies_between_size 1-10\n");
-    process.stdout.write("- find_type ['type'] (note: wrap the type query with quotes) e.g. find_type 'Lifestyle & Consumer'\n")
+    process.stdout.write("- find_type ['type'] (note: wrap argument with quotes) e.g. find_type 'Lifestyle & Consumer'\n")
     return;
   }
 
