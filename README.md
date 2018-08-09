@@ -22,13 +22,13 @@
 
 ## Requirements
 
-To run the program and run tests, Node.js must be installed globally in your device. 
+To run the program and run tests, Node.js must be installed globally on your device. 
 This program is built with `Node 8.11.1`
 
 ## Design overview
 
-1. Language: I chose JavaScript with Node.js environment 
-2. Environment: To make the script executable, I mapped `./index.js` command with bin. This maps the command to the file `index.js` to be executed.
+1. Language: I decided to use JavaScript with Node.js environment 
+2. Run the program: To make the program executable, I mapped `./index.js` command with bin. This maps the command to the file `index.js` to be executed.
 3. Main Process: Main function `miner()` takes input from STDIN => Read the file to parse data => pass the data and user query to command handlers
 => the `logCompanies()` function takes the mapped result and logs it as a string to the console
 
@@ -43,12 +43,13 @@ From the root directory:
 npm install -g
 ```
 
-2. Run command in the format 
+2. Run command in the format: 
 
 ```sh
 ./index.js [file] [command] [argument]
 ```
 
+### Example
 ```sh
 ./index.js data.json find_companies_between_size 1,001-5,000
 Company Names:
