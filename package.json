@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "Moyeong Lee",
   "license": "ISC",
+  "bin": {
+    "miner": "./index.js"
+  },
   "devDependencies": {
     "jest": "^23.4.2"
   }
