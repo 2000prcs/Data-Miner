@@ -9,10 +9,6 @@ const [,, ...args] = process.argv;
 
 // Prints output to STDOUT
 const logCompanies = (data) => {
-  if(data.length === 0){
-    console.log("No Companies Found with Your Query");
-    return;
-  } 
   console.log(`Company Names:\n${data.join(', ')}\n\nNumber of Companies: ${data.length}`);
 }
 
